@@ -23,7 +23,5 @@ with open ('report.txt','r',encoding = 'utf-8') as f:
                 return repr((self.name, self.goal, self.sumStudent, self.average))
         resultsNew = student()
         resultsNew_list.append(resultsNew)
-        resultsNew_list.sort(key = average)
-    print (resultsNew_list)
-#with open('report_new.txt', 'w', encoding = 'utf-8') as output:
-    #output.writelines(resultsNew)
+        results_sorted = sorted(resultsNew_list, key=lambda student: student.average, reverse=True)
+    print (results_sorted)
