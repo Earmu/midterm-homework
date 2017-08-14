@@ -1,0 +1,2 @@
+            results = '%s ' % data[0] + ' '.join(data[1:]) + '  %d  %d' % (sum_student, average)
+        results_all.append(results)
