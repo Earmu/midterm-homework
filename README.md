@@ -1,27 +1,18 @@
 # midterm-homework
 Crossinclass 9-3
-report_all = []
-resultsNew_list = []
-with open ('report.txt','r',encoding = 'utf-8') as f: 
-    report_all = f.readlines()
-    for line in report_all:
-        #print (line)
-        data = line.split()
-        sum_student = 0
-        sum_goal = 0
-        results = []
-        for score in data[1:]:
-            sum_student += int(score)
-            average = str(round(float(sum_student)/(len(data) - 1), 1))
+        for goal in range(1,  len(data)):
+            sum_c[goal-1] += int(data[goal])   #计算每科总分
+            average_c = [round(float(i) / len(report_all), 1)  for i in sum_c]    #各科平均分
+        average_c.insert(0, '平均')
         class student:
             def __init__(self):
                 self.name = data[0]
                 self.goal = ' '.join(data[1:])
-                self.sumStudent = sum_student
-                self.average = average
+                self.sumStudent = sum_s
+                self.average = average_s
             def __repr__(self):
                 return repr((self.name, self.goal, self.sumStudent, self.average))
         resultsNew = student()
         resultsNew_list.append(resultsNew)
         results_sorted = sorted(resultsNew_list, key=lambda student: student.average, reverse=True)
-    print (results_sorted) 
+    results_sorted.insert(0, average_c)
